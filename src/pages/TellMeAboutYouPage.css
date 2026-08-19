@@ -1,0 +1,288 @@
+.notebook-page {
+  position: relative;
+  max-width: 780px;
+}
+
+.notebook-page__sheet {
+  position: relative;
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 33px,
+    rgba(126, 157, 183, 0.32) 34px
+  );
+  box-shadow: var(--shadow-paper);
+  border: 1px solid rgba(32, 37, 43, 0.08);
+  transform: rotate(-0.3deg);
+  padding: 52px 56px 60px 108px;
+}
+
+.notebook-page__holes {
+  position: absolute;
+  left: 34px;
+  top: 64px;
+  bottom: 64px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.notebook-page__holes span {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--paper-bg);
+  box-shadow: inset 1px 2px 3px rgba(32, 37, 43, 0.35);
+}
+
+.notebook-page__margin {
+  position: absolute;
+  left: 82px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--margin-red);
+  opacity: 0.75;
+  z-index: 1;
+}
+
+/* Narrow margin doodles running down the right side, in the gutter outside
+   the sheet -- only shown where that gutter genuinely exists, so it never
+   forces the sheet to shrink or risks overflow on narrower viewports. */
+.notebook-page__doodles {
+  display: none;
+}
+
+@media (min-width: 1180px) {
+  .notebook-page__doodles {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    position: absolute;
+    top: 70px;
+    left: 100%;
+    margin-left: 28px;
+    width: 34px;
+  }
+
+  .notebook-page__doodle {
+    width: 30px;
+    height: auto;
+    color: var(--ink);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+.notebook-page__header {
+  position: relative;
+  z-index: 2;
+}
+
+.notebook-page__title {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  color: var(--ink);
+}
+
+.notebook-page__subtitle {
+  margin-top: 10px;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.notebook-page__aside {
+  margin-top: 6px;
+  font-family: var(--font-hand);
+  font-size: 19px;
+  color: var(--pencil);
+}
+
+.notebook-form {
+  position: relative;
+  z-index: 2;
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+/* Name line */
+.name-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.name-line__label {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.name-line__field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+  max-width: 260px;
+}
+
+.name-line__field--initial {
+  flex: 0 0 84px;
+  max-width: 84px;
+}
+
+.name-line__input {
+  border: none;
+  border-bottom: 1.5px solid var(--ink);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 17px;
+  color: var(--ink);
+  padding: 2px 2px 4px;
+  width: 100%;
+}
+
+.name-line__input::placeholder {
+  color: var(--pencil);
+  font-style: italic;
+}
+
+.name-line__input--initial {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.name-line__caption {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--pencil);
+  white-space: nowrap;
+}
+
+/* Questions */
+.notebook-form__question {
+  max-width: 620px;
+}
+
+.notebook-form__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.notebook-lines {
+  display: block;
+  width: 100%;
+  border: none;
+  background: transparent;
+  resize: none;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 34px;
+  color: var(--ink);
+  padding-top: 2px;
+}
+
+.notebook-lines::placeholder {
+  color: var(--pencil);
+  font-style: italic;
+}
+
+.notebook-lines--short {
+  height: 102px;
+}
+
+.notebook-lines--tall {
+  height: 136px;
+}
+
+.notebook-form__message {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--margin-red);
+  max-width: 560px;
+}
+
+.notebook-form__submit {
+  margin-top: 4px;
+}
+
+/* Success state */
+.notebook-success {
+  position: relative;
+  z-index: 2;
+  margin-top: 44px;
+  max-width: 480px;
+}
+
+.notebook-success__title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  color: var(--ink);
+}
+
+.notebook-success__line {
+  margin-top: 12px;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.notebook-success__back {
+  display: inline-block;
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .notebook-page__sheet {
+    padding: 40px 22px 48px 70px;
+    transform: none;
+  }
+
+  .notebook-page__holes {
+    left: 18px;
+    top: 48px;
+    bottom: 48px;
+    width: 14px;
+  }
+
+  .notebook-page__holes span {
+    width: 13px;
+    height: 13px;
+  }
+
+  .notebook-page__margin {
+    left: 48px;
+  }
+
+  .notebook-page__title {
+    font-size: 32px;
+  }
+
+  .name-line {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .name-line__field,
+  .name-line__field--initial {
+    max-width: none;
+  }
+}

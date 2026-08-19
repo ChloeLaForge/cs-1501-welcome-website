@@ -1,0 +1,48 @@
+:root {
+  /* Paper */
+  --paper-bg: #f3eedf; /* warm notebook/old-paper background */
+  --paper: #fffdf5; /* primary paper surface (cards, sheets) */
+
+  /* Ink -- official UVA navy, doubling as the site's "ink" color for
+     text/headings/borders. */
+  --ink: #232d4b;
+
+  /* Accents */
+  --notebook-blue: #7e9db7;
+  --uva-orange: #e57200; /* official UVA orange -- the site's one accent color */
+  /* Red retired site-wide in favor of UVA orange. Kept as an alias (not a
+     second literal) so every existing var(--margin-red) usage -- focus
+     rings, required marks, active marks, underlines -- updates from this
+     one definition instead of being hunted down file by file. */
+  --margin-red: var(--uva-orange);
+  --pencil: #77736b;
+
+  /* Sticky notes */
+  --sticky-yellow: #e9d88c;
+  --sticky-sage: #d8dfb2;
+  --sticky-blue: #d3dfe5;
+  --sticky-terracotta: #e6b98a; /* warm, muted, orange-leaning -- used for the Questions sticky note */
+  --sticky-gold: #e8a94e; /* richer, more golden UVA orange -- used for the Tell Me About You sticky note */
+
+  /* Blueprint grid -- very low-opacity navy lines for the faint
+     engineering-grid page backgrounds. --grid-line-strong is only used
+     where a page is explicitly allowed to lean further into that motif. */
+  --grid-line: rgba(35, 45, 75, 0.055);
+  --grid-line-strong: rgba(35, 45, 75, 0.09);
+
+  /* Type */
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-hand: "Caveat", cursive;
+
+  /* Radius: physical paper has corners. 0 by default, tiny softness only where noted. */
+  --radius-none: 0px;
+  --radius-soft: 3px;
+
+  /* Shadows: soft, restrained, physical elevation only -- ink-colored, so
+     these track the --ink navy nudge above. */
+  --shadow-note: 2px 3px 6px rgba(35, 45, 75, 0.16);
+  --shadow-note-lift: 3px 6px 10px rgba(35, 45, 75, 0.2);
+  --shadow-paper: 0 8px 24px rgba(35, 45, 75, 0.14);
+  --shadow-tab: 1px 2px 0 rgba(35, 45, 75, 0.55);
+}

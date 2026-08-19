@@ -1,0 +1,261 @@
+.welcome-page {
+  position: relative;
+  min-height: 100vh;
+  background-image:
+    repeating-linear-gradient(to right, var(--grid-line) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(to bottom, var(--grid-line) 0 1px, transparent 1px 64px);
+}
+
+.welcome-page__inner {
+  position: relative;
+  isolation: isolate;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 76px 6vw 70px 8vw;
+}
+
+.welcome-page__rotunda {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  z-index: -1;
+  width: 205px;
+  height: auto;
+  color: var(--ink);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .welcome-page__rotunda {
+    width: 130px;
+  }
+}
+
+/* Bigger, more noticeable UVA pennant -- tucked into the gap between the
+   First Class card and the sticky notes. Kept short enough (not wide) to
+   stay clear of the notes regardless of how many are showing (2 or 3,
+   depending on AI Friend availability), since that gap's height doesn't
+   depend on note count the way its width does. */
+.welcome-page__uva-pennant {
+  position: absolute;
+  top: 216px;
+  right: 10px;
+  width: 112px;
+  height: auto;
+  transform: rotate(-6deg);
+  filter: drop-shadow(2px 3px 3px rgba(35, 45, 75, 0.18));
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .welcome-page__uva-pennant {
+    top: 206px;
+    right: 4px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .welcome-page__uva-pennant {
+    display: none;
+  }
+}
+
+.welcome-page__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.welcome-page__intro {
+  max-width: 520px;
+}
+
+.welcome-page__title {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 7.5vw, 48px);
+  line-height: 1.08;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.welcome-page__subtitle {
+  margin-top: 18px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 440px;
+  color: var(--ink);
+}
+
+/* First-class reminder: a small taped card, not a widget. */
+.reminder-card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid rgba(35, 45, 75, 0.14);
+  padding: 20px 26px 22px;
+  box-shadow: var(--shadow-note);
+  transform: rotate(2deg);
+  margin-top: 12px;
+  width: fit-content;
+}
+
+/* Tiny drafting registration marks -- opposite corners, echoes the same
+   detail used on the AI Friend Creation Frame. */
+.reminder-card::before,
+.reminder-card::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.reminder-card::before {
+  top: 5px;
+  left: 5px;
+  border-top: 1.5px solid var(--uva-orange);
+  border-left: 1.5px solid var(--uva-orange);
+  opacity: 0.7;
+}
+
+.reminder-card::after {
+  bottom: 5px;
+  right: 5px;
+  border-bottom: 1.5px solid var(--uva-orange);
+  border-right: 1.5px solid var(--uva-orange);
+  opacity: 0.7;
+}
+
+.reminder-card__tape {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 70px;
+  height: 22px;
+  background: rgba(255, 253, 245, 0.6);
+  border: 1px solid rgba(35, 45, 75, 0.08);
+}
+
+.reminder-card__label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin: 0;
+}
+
+.reminder-card__date {
+  margin: 6px 0 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--ink);
+}
+
+.reminder-card__date span {
+  border-bottom: 3px solid var(--uva-orange);
+  padding-bottom: 2px;
+}
+
+.welcome-page__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 48px;
+  font-family: var(--font-hand);
+  font-size: 19px;
+  color: var(--pencil);
+}
+
+.welcome-page__cta-arrow {
+  width: 34px;
+  height: 26px;
+  color: var(--pencil);
+  flex: 0 0 auto;
+}
+
+.welcome-page__notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 44px;
+  margin-top: 18px;
+}
+
+.welcome-page__signoff {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-hand);
+  font-size: 24px;
+  color: var(--pencil);
+  margin-top: 72px;
+  margin-left: 6px;
+  transform: rotate(-1deg);
+}
+
+.welcome-page__pennant {
+  width: 20px;
+  height: 26px;
+  color: var(--pencil);
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .welcome-page__top {
+    gap: 28px;
+  }
+
+  .welcome-page__notes {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .welcome-page__inner {
+    padding: 48px 6vw 56px;
+  }
+
+  .welcome-page__top {
+    flex-direction: column;
+  }
+
+  .reminder-card {
+    transform: rotate(-1deg);
+    margin-top: 22px;
+  }
+
+  .welcome-page__cta {
+    margin-top: 36px;
+    font-size: 17px;
+    gap: 8px;
+  }
+
+  .welcome-page__cta-arrow {
+    width: 26px;
+    height: 20px;
+  }
+
+  .welcome-page__notes {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .welcome-page__notes > * {
+    margin-top: 0 !important;
+  }
+
+  .welcome-page__signoff {
+    margin-top: 48px;
+  }
+}

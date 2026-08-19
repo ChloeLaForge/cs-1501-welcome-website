@@ -1,0 +1,152 @@
+.sidebar {
+  width: 200px;
+  flex: 0 0 200px;
+  min-height: 100vh;
+  padding: 40px 20px 24px 34px;
+  border-right: 1px solid rgba(229, 114, 0, 0.22);
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Subtle notebook-margin rule, inset from the true left edge -- text sits
+   just to the right of it, like writing beside a margin line. */
+.sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 1px;
+  background: rgba(229, 114, 0, 0.16);
+}
+
+.sidebar__label {
+  position: relative;
+  margin-bottom: 34px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(35, 45, 75, 0.12);
+}
+
+.sidebar__label-tape {
+  position: absolute;
+  top: -12px;
+  left: 4px;
+  width: 44px;
+  height: 15px;
+  background: rgba(255, 253, 245, 0.65);
+  border: 1px solid rgba(35, 45, 75, 0.08);
+  transform: rotate(-3deg);
+}
+
+.sidebar__label-course {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.sidebar__label-title {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  color: var(--pencil);
+}
+
+.sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sidebar__item {
+  margin: 0;
+}
+
+.sidebar__link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--pencil);
+  text-decoration: none;
+  display: inline-block;
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+}
+
+.sidebar__link:hover {
+  color: var(--ink);
+  border-bottom-color: var(--pencil);
+}
+
+.sidebar__link--active {
+  color: var(--ink);
+  border-bottom: 1px solid var(--uva-orange);
+}
+
+.sidebar__mark {
+  color: var(--uva-orange);
+}
+
+.sidebar__doodles {
+  margin-top: auto;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.sidebar__doodle {
+  width: 20px;
+  height: 20px;
+  color: var(--pencil);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    width: 100%;
+    flex: none;
+    min-height: 0;
+    position: static;
+    padding: 16px 20px;
+    border-right: none;
+    border-bottom: 1px solid rgba(229, 114, 0, 0.22);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 0;
+  }
+
+  .sidebar::before {
+    display: none;
+  }
+
+  .sidebar__label {
+    width: 100%;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+
+  .sidebar__doodles {
+    display: none;
+  }
+
+  .sidebar__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+}

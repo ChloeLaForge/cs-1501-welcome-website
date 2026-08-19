@@ -1,0 +1,195 @@
+.creation-frame {
+  position: relative;
+  min-width: 0;
+}
+
+.creation-frame__head {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.creation-frame__tape {
+  position: absolute;
+  top: -14px;
+  left: 8px;
+  transform: rotate(-4deg);
+  width: 58px;
+  height: 20px;
+  background: rgba(255, 253, 245, 0.6);
+  border: 1px solid rgba(32, 37, 43, 0.08);
+}
+
+.creation-frame__title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--ink);
+  padding-top: 8px;
+}
+
+/* The 10px paper "border" plus an inset outline reads as a mat/frame around
+   the window, without needing extra markup for a separate frame layer. */
+.creation-frame__window {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--paper);
+  border: 10px solid var(--paper);
+  outline: 1px solid rgba(32, 37, 43, 0.16);
+  outline-offset: -10px;
+  box-shadow: var(--shadow-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Small drafting/registration corner marks -- reinforces the frame's
+   existing "picture-frame mat" concept with a restrained technical detail. */
+.creation-frame__window::before,
+.creation-frame__window::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.creation-frame__window::before {
+  top: 4px;
+  left: 4px;
+  border-top: 1.5px solid var(--uva-orange);
+  border-left: 1.5px solid var(--uva-orange);
+}
+
+.creation-frame__window::after {
+  bottom: 4px;
+  right: 4px;
+  border-bottom: 1.5px solid var(--uva-orange);
+  border-right: 1.5px solid var(--uva-orange);
+}
+
+.creation-frame__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 24px;
+  max-width: 260px;
+}
+
+.creation-frame__hand {
+  font-family: var(--font-hand);
+  font-size: 24px;
+  color: var(--pencil);
+}
+
+.creation-frame__small {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--pencil);
+  line-height: 1.5;
+}
+
+.creation-frame__prompt {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.creation-frame__prompt--error {
+  color: var(--margin-red);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-style: normal;
+}
+
+.creation-frame__generating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  padding: 24px;
+  max-width: 260px;
+}
+
+.creation-frame__generating-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--ink);
+}
+
+/* All four lines stay mounted and stacked -- only color/opacity change as
+   the active highlight moves, so the stage's height never reflows. */
+.creation-frame__generating-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.creation-frame__generating-line {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pencil);
+  opacity: 0.6;
+  transition: color 300ms ease, opacity 300ms ease;
+}
+
+.creation-frame__generating-line--active {
+  color: var(--ink);
+  opacity: 1;
+}
+
+.creation-frame__complete {
+  width: 100%;
+  height: 100%;
+}
+
+.creation-frame__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creation-frame__note {
+  margin-top: 16px;
+  background: var(--sticky-sage);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-note);
+  transform: rotate(-1deg);
+}
+
+.creation-frame__note-caption {
+  font-family: var(--font-hand);
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.creation-frame__note-body {
+  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.creation-frame__disclaimer {
+  margin-top: 12px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--pencil);
+}
+
+@media (max-width: 640px) {
+  .creation-frame__title {
+    font-size: 22px;
+  }
+}

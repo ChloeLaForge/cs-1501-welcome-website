@@ -1,0 +1,111 @@
+.flashcard-item {
+  --rot: 0deg;
+  list-style: none;
+  transform: rotate(var(--rot));
+  transition: transform 0.18s ease;
+}
+
+.flashcard-item:hover,
+.flashcard-item:focus-within {
+  transform: rotate(0deg);
+}
+
+.flashcard {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+.flashcard__scene {
+  display: block;
+  perspective: 1500px;
+}
+
+.flashcard__card {
+  position: relative;
+  display: grid;
+  min-height: 208px;
+  transition: transform 0.5s cubic-bezier(0.22, 0.85, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+.flashcard__card[data-flipped="true"] {
+  transform: rotateY(180deg);
+}
+
+.flashcard__face {
+  grid-row: 1;
+  grid-column: 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px 16px;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    rgba(126, 157, 183, 0.28) 28px
+  );
+  border: 1px solid rgba(32, 37, 43, 0.16);
+  box-shadow: var(--shadow-note);
+}
+
+.flashcard__face--front {
+  border-top: 3px solid var(--margin-red);
+}
+
+.flashcard__face--back {
+  transform: rotateY(180deg);
+  border-top: 3px solid var(--notebook-blue);
+}
+
+.flashcard__number {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--pencil);
+}
+
+.flashcard__question {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--ink);
+  flex: 1;
+}
+
+.flashcard__hint {
+  margin-top: 12px;
+  align-self: flex-end;
+  font-family: var(--font-hand);
+  font-size: 16px;
+  color: var(--pencil);
+}
+
+.flashcard__answer {
+  margin-top: 14px;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  white-space: pre-line;
+}
+
+@media (max-width: 640px) {
+  .flashcard-item {
+    transform: rotate(0deg);
+  }
+
+  .flashcard__card {
+    min-height: 0;
+  }
+
+  .flashcard__face {
+    min-height: 176px;
+  }
+}

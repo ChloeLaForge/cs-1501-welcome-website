@@ -1,0 +1,25 @@
+.internal-layout {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+  background: var(--paper-bg);
+}
+
+.internal-layout__content {
+  flex: 1;
+  min-width: 0;
+  padding: 56px 48px 80px;
+  background-image:
+    repeating-linear-gradient(to right, var(--grid-line) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(to bottom, var(--grid-line) 0 1px, transparent 1px 64px);
+}
+
+@media (max-width: 760px) {
+  .internal-layout {
+    flex-direction: column;
+  }
+
+  .internal-layout__content {
+    padding: 32px 20px 56px;
+  }
+}

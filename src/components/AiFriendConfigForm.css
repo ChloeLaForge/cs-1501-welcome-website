@@ -1,0 +1,62 @@
+.ai-config-form {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.ai-config-form__field {
+  max-width: 420px;
+}
+
+.ai-config-form__field--custom-subject {
+  margin-top: -14px;
+  max-width: 340px;
+}
+
+.ai-config-form__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.ai-config-form__input {
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid var(--ink);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--ink);
+  padding: 2px 2px 6px;
+}
+
+.ai-config-form__textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  border-bottom: 1.5px solid var(--ink);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  padding: 2px 2px 6px;
+}
+
+.ai-config-form__input::placeholder,
+.ai-config-form__textarea::placeholder {
+  color: var(--pencil);
+  font-style: italic;
+}
+
+.ai-config-form__counter {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--pencil);
+  text-align: right;
+}
