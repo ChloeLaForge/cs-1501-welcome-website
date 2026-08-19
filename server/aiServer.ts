@@ -36,7 +36,7 @@ import { resolveClientIp } from "./requestPolicy";
 // tsconfig.node.json, which also covers this file). The constants below are
 // kept in sync by hand with src/data/aiFriendOptions.ts.
 
-const PORT = Number(process.env.AI_FRIEND_SERVER_PORT ?? 8790);
+const PORT = Number(process.env.PORT ?? process.env.AI_FRIEND_SERVER_PORT ?? 8790);
 const OPENAI_TIMEOUT_MS = Number(process.env.OPENAI_REQUEST_TIMEOUT_MS ?? 120_000);
 const TRUST_PROXY_HOPS = Math.max(0, Number.parseInt(process.env.TRUST_PROXY_HOPS ?? "0", 10) || 0);
 
@@ -774,8 +774,8 @@ const server = createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Course website server listening on http://localhost:${PORT}`);
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Course website server listening on http://0.0.0.0:${PORT}`);
   if (!process.env.OPENAI_API_KEY) {
     console.warn(
       "OPENAI_API_KEY is not set -- chat and image requests will return a helpful error until it's added to .env.local.",
